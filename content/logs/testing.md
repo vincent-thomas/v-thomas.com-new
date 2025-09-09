@@ -269,7 +269,7 @@ Here both outer_fut3:fut2 and outer_fut2:fut2 are guarranteed to throw the error
 | outer_fut2    | fut1 Y  | fut2 M     |         |
 | outer_fut3    | fut1 Y  | fut2 M     | fut3 X  |
 
-Bad parts:
+_<u>Bad parts:</u>_
 - outer_fut3:fut3 is **never** executed.
 - We don't know from which future the error came from.
 - This becomes exponentially less predictable as Futures can have different amount of poll calls, `async` blocks can have different amount of `.await` points.
