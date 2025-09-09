@@ -1,0 +1,9 @@
+
+
+{% extends "base.html" %}
+{% import "components/log_list.html" as log_list %}
+
+{% block main_content %}
+  <h1 style="margin-bottom: 2rem;">Logs</h1>
+  {{ log_list::log_list() }}
+{% endblock main_content %}

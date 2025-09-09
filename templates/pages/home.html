@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% import "components/log_list.html" as log_list %}
+
+{% block main_content %}
+  <article>
+    <h1>Hi</h1>
+    <p>
+      I'm Vincent. My systems are well good, and I'm:
+    </p>
+    <ul>
+      <li>The owner of, and work at, the tech consultancy firm <code>VT Labs AB</code>. <em><a href="https://linkedin.com/" class="hire-us">(hire us)</a></em></li>
+      <li>Highly knowledgable of Rust and AWS cloud with 5+ years of experience.</li>
+      <li>Interested in economics/long-term investing and I <a href="https://www.google.com/search?q=29er+sailboat&udm=2&sclient=gws-wiz-img" class="sail">race sailboats</a>.</li>
+    </ul>
+    <p>
+      <a href="//github.com/liten-rs/liten" class="link-underline">Here is</a>
+      <a href="//github.com/liten-rs/titan" class="link-underline">some of</a>
+      <a href="//github.com/vincent-thomas/getstuff.cc" class="link-underline">my open-</a>
+      <a href="//github.com/vincent-thomas/vtos" class="link-underline">source work</a>. (in order of importantness)
+    </p>
+    <section class="socials-container">
+      <p class="header-text">
+        <strong>
+          <em>Socials:</em>
+        </strong>
+      </p>
+      <nav>
+        <a href="https://linkedin.com/in/vt06" class="link-underline">LinkedIn</a><span class="space">,</span>
+        <a href="https://github.com/vincent-thomas" class="link-underline">Github</a><span class="space">,</span>
+        <a href="#" class="link-underline">Email</a>
+      </nav>
+    </section>
+    <section>
+      <p class="header-text">
+        <strong>
+          <em>Skills:</em>
+        </strong>
+      </p>
+      <p>
+        Low level stuff in Rust, AWS (or cloud in general), Cryptography (E2E-encrypted scenarios), Web dev, DB stuff (SQL, DynamoDB).
+      </p>
+    </section>
+
+    <section>
+      <p class="header-text" style="margin-bottom: 2rem;">
+        <strong>
+          <em>Latest Post:</em>
+        </strong>
+      </p>
+      {{ log_list::log_list(limit=3) }}
+    </section>
+  </article>
+
+  <style>
+    .sail:hover {
+      text-decoration: underline;
+      text-decoration-offset: 2px;
+      text-decoration-width: 2px;
+    }
+
+    .hire-us {
+      text-decoration: underline dotted !important;
+    }
+
+    .socials-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min-content;
+    }
+
+    .socials-container nav {
+      display: flex;
+    }
+
+    .socials-container nav a {
+      padding-right: 0;
+    }
+
+    .socials-container nav .space {
+      color: var(--clr-text2);
+      transform: translateY(5px);
+      font-size: 1.1rem;
+    }
+
+    .header-text {
+      font-size: 1.1rem;
+      margin-right: 0.5rem;
+    }
+  </style>
+{% endblock main_content %}

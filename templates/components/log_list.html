@@ -1,0 +1,62 @@
+{% macro log_list(limit=99999999) %}
+{% set logs = get_section(path="logs/_index.md") %}
+<div class="articles">
+  {% for post in logs.pages | slice(end=limit | default(value=logs.pages | length)) %}
+    <a href="{{ post.permalink }}">
+      <h3>
+        {{ post.title }}
+      </h3>
+      <p>{{post.description}}</p>
+      <p class="published">Published: {{post.date}}</p>
+    </a>
+  {% endfor %}
+</div>
+
+<style>
+  .articles a {
+    border: 1px solid transparent;
+  }
+  .articles a:not(:last-child) {
+    border-bottom-color: var(--clr-border);
+  }
+
+   .articles a:hover {
+     border: 1px solid var(--clr-border);
+   }
+
+   .articles a:last-child:hover {
+     border-top-color: transparent;
+   }
+
+  .articles {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 0.5rem;
+
+     a {
+       padding: 0.5rem;
+     }
+
+    a:not(:first-child) {
+      padding-top: 2rem;
+    }
+
+    a:hover {
+    }
+
+    h3 {
+      margin-bottom: 0.25rem;
+    }
+
+    .published {
+      margin-top: 2rem;
+    }
+  }
+
+  .articles a:hover h3 {
+    text-decoration: underline;
+    text-decoration-offset: 2px;
+    text-decoration-width: 2px;
+  }
+</style>
+{% endmacro log_list %}

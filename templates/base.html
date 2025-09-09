@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "partials/headers-base.html" %}
+  </head>
+  <body>
+    <div class="wrapper">
+      {% include "partials/navbar.html" %}
+      <main>
+        {% block main_content %}
+        {% endblock main_content %}
+      </main>
+
+      {% include "partials/footer.html" %}
+    </div>
+
+    <style>
+      .wrapper {
+        max-width: 800px;
+        width: 100%;
+        margin-inline: auto;
+        padding-inline: 0.5rem;
+      }
+
+      main {
+        padding-top: 4rem;
+      }
+    </style>
+  </body>
+</html>

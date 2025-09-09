@@ -1,0 +1,54 @@
+
+
+{% extends "base.html" %}
+
+{% block main_content %}
+  <article>
+    <h1>{{page.title }}</h1>
+    <p>{{ page.description }}</p>
+    <div class="published">
+      <p>Published {{ page.date }}</p>
+    </div>
+    {% include "components/separator.html" %}
+    <div class="content">{{ page.content | safe }}</div>
+  </article>
+
+  <style>
+
+    .hire-us {
+      text-decoration: underline dotted !important;
+    }
+
+    .socials-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min-content;
+    }
+
+    .socials-container nav {
+      display: flex;
+    }
+
+    .socials-container nav a {
+      padding-right: 0;
+    }
+
+    .socials-container nav .space {
+      color: var(--clr-text2);
+      transform: translateY(5px);
+      font-size: 1.1rem;
+    }
+
+    .socials-text {
+      font-size: 1.1rem;
+      margin-right: 0.5rem;
+    }
+
+    .published {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+  </style>
+{% endblock main_content %}

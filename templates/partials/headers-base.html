@@ -1,0 +1,139 @@
+<title>VT</title>
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.13/dist/turbo.es2017-esm.min.js"></script>
+<style>
+  @font-face {
+    font-family: 'Roboto Mono';
+    font-style: italic;
+    font-weight: 100 900; /* Range for variable weight */
+    src: url(/fonts/roboto_mono-italic.ttf) format('truetype-variations');
+  }
+  @font-face {
+    font-family: 'Roboto Mono';
+    src: url(/fonts/roboto_mono.ttf) format('truetype-variations');
+    font-weight: 100 900; /* Range for variable weight */
+    font-style: normal; /* Add italic if needed */
+  }
+
+  *, *::before, *::after {
+    font-family: "Roboto Mono";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --clr-bg: #1A1A1A;
+    --clr-text1: #EEE;
+    --clr-text2: #DDD;
+    --clr-border: #555;
+
+    background: var(--clr-bg);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: var(--clr-text1);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.375rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+  }
+
+  blockquote {
+    padding: 1rem;
+    border-left: 4px solid lightgray;
+    background-color: #333;
+  }
+
+  article blockquote:not(:first-child) {
+    margin-top: 1rem;
+  }
+
+  article blockquote:not(:first-child) {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: var(--clr-text1);
+    text-decoration: none;
+  }
+
+  a.link-underline, article .content a {
+    text-decoration: underline;
+    text-decoration-offset: 2px;
+    text-decoration-thickness: 2px;
+  }
+
+
+  p {
+    color: var(--clr-text2);
+  }
+
+  pre[data-lang] {
+    padding: 1.5rem 0.75rem;
+    border-radius: 0.5rem;
+  }
+
+  article pre:not(:first-child) {
+    margin-top: 1rem;
+  }
+  article pre:not(:first-child) {
+    margin-bottom: 1rem;
+  }
+
+  code:not([data-lang]) {
+    display: inline-block;
+    padding-inline: 0.2rem;
+    padding-block: 0.15rem;
+    background: black;
+    border: 1px solid var(--clr-border);
+    color: var(--clr-text1);
+    border-radius: 0.5rem;
+  }
+
+  article h1, article h2, article h3 {
+    margin-bottom: 1.2rem;
+  }
+
+  article > section:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  article > section:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  article p:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  article p:not(:first-child) {
+    margin-top: 1rem;
+  }
+
+  article ul > li {
+    margin-left: 1.5rem;
+    color: var(--clr-text1);
+  }
+
+  article ul > li:not(:last-child) {
+    margin-bottom: 0.3rem;
+  }
+</style>
