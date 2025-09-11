@@ -47,7 +47,7 @@ pub enum Poll<T> {
 - When the waker is called (can be anywhere in the program), it tells the runtime that the linked `Future` should be `Future::poll`ed again.
 - The runtime assumes that the waker will be called in some point in the future. If the waker never gets called, the future **never completes**.
 - When `Future::poll` returns `Poll::Ready(Self::Output)`, it is undefined behaviour if `Future::poll` gets called again. Additionally, this also means it's undefined behaviour if a waker is called somewhere in your system after the linked Future has returned `Poll::Ready(Self::Output)`.
-- In rust a Future is "cold", which means that if you don't poll it, nothing will happen. This in contrast to javascript's Promises which execute in the background,  even if you dont `.await`.
+- In rust a Future is ["lazy"](https://en.wikipedia.org/wiki/Lazy_evaluation), which means that if you don't poll it, nothing will happen. This in contrast to javascript's Promises which execute in the background,  even if you dont `.await`.
 
 Here's an example of a super simple Future impl:
 ```rust
@@ -99,7 +99,7 @@ fn main() {
 ## `async { ... }`
 
 This `Future` thing is just a trait, so it needs to be implemented for people to use Futures right? Yes, and rust choose the `async`/`await` syntax for this.
-An async block is what is called an anonumys Future. That's because it cannot be encoded as a type without generics:
+An async block is what is called an anonymous Future. That's because it cannot be encoded as a type without generics:
 
 ```rust
 let fut: Box<dyn Future<Output = ()>> = Box::new(async { () })
@@ -280,4 +280,4 @@ The last point becomes exponentially worse when the runtime uses threads to poll
 ## "Rust is full of these minefields!!!" i hear you say
 
 In my opinion, this isn't rusts fault. Rust values zero-cost abstraction and if control over execution is required (as it often is when choosing rust), this is the best design of async i've ever seen.
-This issue is not the `Future` trait, or how `async { ... }` is compiled, it's just a library API mistake which leaks internal functionality on to the library user.
+This issue is not the `Future` trait, or how `async { ... }` is compiled, it's just a library API mistake.
